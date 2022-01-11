@@ -61,6 +61,7 @@ rst_path_to_watch = "./docs/rst"
 tracked_py_files = []
 tracked_rst_files = []
 
+print("I'm watching your back.. go on..")
 while True:
     time.sleep(2)
     tracked_py_files = tracker(py_path_to_watch, tracked_py_files, 'py')

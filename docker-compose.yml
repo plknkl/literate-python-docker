@@ -1,0 +1,16 @@
+version: '3.2'
+services:
+
+  python:
+    image: python-dev-env
+    build:
+      context: ./.docker
+      dockerfile: ./Dockerfile
+    container_name: 'python-dev-container'
+    ports:
+      - 8088:8088
+    command: python -m http.server 8088
+    volumes:
+      - ./pylit:/home/pyuser/project/pylit
+      - ./docs:/home/pyuser/project/docs
+      - ./src:/home/pyuser/project/src

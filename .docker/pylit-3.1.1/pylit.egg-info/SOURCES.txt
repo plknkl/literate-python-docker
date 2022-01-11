@@ -1,0 +1,8 @@
+README.rst
+pylit.py
+setup.cfg
+setup.py
+pylit.egg-info/PKG-INFO
+pylit.egg-info/SOURCES.txt
+pylit.egg-info/dependency_links.txt
+pylit.egg-info/top_level.txt

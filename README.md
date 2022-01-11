@@ -1,6 +1,10 @@
 # Literate Python Container
 A minimal environment to develop python projects in a literal way.
 
+Basically a wrapper around 
+[pylit](https://slott56.github.io/PyLit-3/)
+[docutils](https://docutils.sourceforge.io/)
+
 A `docker-compose up` command will spin up the container, which will expose a simple 
 http server on `localhost:8080`. 
 

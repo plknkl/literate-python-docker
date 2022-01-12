@@ -6,7 +6,7 @@ services:
     build:
       context: ./.docker
       dockerfile: ./Dockerfile
-    container_name: 'python-dev-container'
+    container_name: 'python-dev'
     ports:
       - 8088:8088
     command: python -m http.server 8088

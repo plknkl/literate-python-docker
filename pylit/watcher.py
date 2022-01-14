@@ -49,6 +49,14 @@ def get_files_stats(tracked_list):
         results[f] = os.stat(f).st_mtime_ns
     return results
 
+def check_index(index_mtime):
+    # if index was modified, re-render it
+    indextime = os.stat('./docs/rst/index.rst').st_mtime
+    if indextime != index_mtime:
+        os.system('rst2html.py --stylesheet ./pylit/style.css ./docs/rst/index.rst ./docs/html/index.html')
+        index_mtime = indextime
+
+
 def find_modified_files(found_files_stats, tracked_files_dict):
     modified_files = []
     for k, v in found_files_stats.items():
@@ -81,10 +89,12 @@ py_path_to_watch = "./src"
 rst_path_to_watch = "./docs/rst"
 tracked_py_files = {}
 tracked_rst_files = {}
+index_mtime = None
 
 print("I'm watching your back.. go on..")
 while True:
     # find all py files
     tracked_py_files = tracker(py_path_to_watch, tracked_py_files, 'py')
-    tracked_rst_files = tracker(rst_path_to_watch, tracked_rst_files, 'rst')
+    tracked_rst_files = tracker(rst_path_to_watch, tracked_rst_files, 'py.rst')
+    check_index(index_mtime)
     time.sleep(2)
